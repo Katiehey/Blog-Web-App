@@ -1,0 +1,22 @@
+<div class="container post-container">
+  <h1 class="post-title"><%= post.title %></h1>
+  <p class="post-date">Post ID: <%= id %></p>
+
+  <div class="post-body">
+        <p><%= post.content %></p>
+  </div>
+
+  <div class="post-actions">
+        <a href="/" class="btn home-btn">⬅ Home</a>
+        <a href="/posts/<%= id %>/update" class="btn edit-btn">Edit</a>
+
+        <form action="/posts/<%= id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');">
+            <button class="btn delete-btn">Delete</button>
+        </form>
+  </div>
+
+  
+
+<!-- content goes here -->
+</div>
+
