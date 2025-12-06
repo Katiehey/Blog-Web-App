@@ -25,4 +25,4 @@ A clean starter template for building web apps using Node.js, Express.js, and EJ
 - Nodemon auto-restart
 
 ## Render URL
-https://blog-web-app-uyi8.onrender.com/
+https://blog-web-app-znew.onrender.com/
