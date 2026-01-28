@@ -2,3 +2,6 @@ node_modules/
 .env
 .DS_Store
 .vscode/
+#data/posts.json
+# Reset to what's in Git if i do insert unwanted changes
+#git checkout -- data/posts.json
