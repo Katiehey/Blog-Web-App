@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "id": "demo-1",
+    "title": "Building My Portfolio Blog",
+    "content": "Welcome to my portfolio blog project! This application was built using Node.js, Express, and EJS with a modern, responsive UI.\n\n## Features\n- Full CRUD functionality (Create, Read, Update, Delete)\n- JSON file storage for data persistence\n- Responsive design with CSS Grid/Flexbox\n- Smooth animations and transitions\n- Modern color palette with CSS variables\n\n## Tech Stack\n- **Backend:** Node.js, Express.js\n- **Frontend:** EJS templates, Vanilla CSS/JS\n- **Storage:** JSON file system\n- **Deployment:** Render (free tier)\n\nFeel free to create, edit, or delete posts to test the functionality!",
+    "createdAt": "2024-01-15T10:00:00.000Z",
+    "updatedAt": "2024-01-15T10:00:00.000Z"
+  },
+  {
+    "id": "demo-2",
+    "title": "The Power of Simple Solutions",
+    "content": "This blog demonstrates that you don't need complex infrastructure to build functional web applications. By using a simple JSON file for storage, the app remains lightweight while providing full persistence.\n\n## Why JSON Storage?\n1. **Zero cost** - No database hosting fees\n2. **Simple setup** - No configuration needed\n3. **Portable** - Easy to backup and migrate\n4. **Perfect for portfolios** - Shows understanding of file I/O\n\n## Key Learnings\n- Async file operations with fs/promises\n- Data serialization with JSON\n- Error handling for file operations\n- UUID generation for unique identifiers\n\nTry creating your own post to see how it works!",
+    "createdAt": "2024-01-14T14:30:00.000Z",
+    "updatedAt": "2024-01-14T14:30:00.000Z"
+  },
+  {
+    "id": "demo-3",
+    "title": "Modern UI/UX Design Principles",
+    "content": "This blog showcases modern web design principles implemented with pure CSS:\n\n## Design Highlights\n- **CSS Variables** for consistent theming\n- **CSS Grid & Flexbox** for responsive layouts\n- **Smooth animations** with CSS transitions\n- **Gradient backgrounds** for visual appeal\n- **Mobile-first responsive design**\n\n## Color Palette\n- Primary: #4361ee (vibrant blue)\n- Secondary: #7209b7 (rich purple)\n- Accent: #f72585 (energetic pink)\n- Neutrals: Clean grayscale for readability\n\n## Typography\n- Headings: Space Grotesk (modern, geometric)\n- Body: Inter (highly readable, versatile)\n\nThe interface provides immediate visual feedback through hover states and smooth transitions.",
+    "createdAt": "2024-01-13T09:15:00.000Z",
+    "updatedAt": "2024-01-13T09:15:00.000Z"
+  }
+]

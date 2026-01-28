@@ -30,6 +30,7 @@ try {
   await fs.writeFile(DATA_FILE, "[]", "utf-8");
 }
 
+
 // Helper function to read posts
 async function readPosts() {
   try {
