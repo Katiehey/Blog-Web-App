@@ -100,7 +100,7 @@ app.post("/posts/:id/update", (req, res) => {
 
 // Handle delete post
 app.post("/posts/:id/delete", (req, res) => {
-  const { id } = req.body;
+  const { id } = req.params;  // Changed from req.body to req.params
 
   // Find index of post
   const index = posts.findIndex((p) => p.id === id);

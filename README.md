@@ -23,3 +23,6 @@ A clean starter template for building web apps using Node.js, Express.js, and EJ
 - EJS templating engine
 - Static public folder
 - Nodemon auto-restart
+
+## Render URL
+https://blog-web-app-znew.onrender.com/
