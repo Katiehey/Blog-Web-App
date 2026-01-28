@@ -1,0 +1,861 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  css/
+    styles.css
+  js/
+    main.js
+routes/
+  index.js
+views/
+  layouts/
+    layout.ejs
+  pages/
+    404.ejs
+    compose.ejs
+    edit.ejs
+    home.ejs
+    post.ejs
+  partials/
+    footer.ejs
+    header.ejs
+    navbar.ejs
+.gitignore
+LICENSE
+package.json
+README.md
+server.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/js/main.js">
+console.log("Client script loaded");
+</file>
+
+<file path="routes/index.js">
+
+</file>
+
+<file path="views/layouts/layout.ejs">
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <header>
+        <%- include("../partials/header") %>
+    </header>
+
+    <main>
+        <!-- This is where the page content gets injected -->
+        <%- body %>
+    </main>
+
+    <footer>
+        <%- include("../partials/footer") %>
+    </footer>
+
+</body>
+</html>
+</file>
+
+<file path="views/pages/404.ejs">
+<div class="container not-found-container">
+
+    <h1 class="not-found-title">404 — Page not found</h1>
+
+    <p class="not-found-text">
+        The post you are looking for does not exist.
+    </p>
+
+    <a href="/" class="primary-btn">Go back home</a>
+
+    <!-- content goes here -->
+</div>
+</file>
+
+<file path="views/pages/compose.ejs">
+<div class="container form-container">
+
+  <h1 class="page-title">Create a New Post</h1>
+
+  <form action="/submit" method="POST" class="post-form">
+
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="Title" required>
+
+    <label for="content">Content</label>
+    <textarea id="content" name="content" placeholder="Write your post..." rows="10" required></textarea>
+
+    <button type="submit" class="btn primary-btn">Publish Post</button>
+  </form>
+  <!-- content goes here -->
+</div>
+</file>
+
+<file path="views/pages/edit.ejs">
+<div class="container form-container">
+
+  <h1 class="page-title">Edit Post</h1>
+
+  <form action="/posts/<%= post.id %>/update" method="POST" class="post-form">
+    
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" value="<%= post.title %>" required>
+
+    <label for="content">Content</label>
+    <textarea id="content" name="content" rows="10" required><%= post.content %></textarea>
+
+    <button type="submit" class="btn primary-btn">Save Changes</button>
+    
+    <a href="/posts/<%= post.id %>" class="btn cancel-btn">Cancel</a>
+  </form>
+
+  
+
+<!-- content goes here -->
+</div>
+</file>
+
+<file path="views/pages/post.ejs">
+<div class="container post-container">
+  <h1 class="post-title"><%= post.title %></h1>
+  <p class="post-date">Post ID: <%= id %></p>
+
+  <div class="post-body">
+        <p><%= post.content %></p>
+  </div>
+
+  <div class="post-actions">
+        <a href="/" class="btn home-btn">⬅ Home</a>
+        <a href="/posts/<%= id %>/update" class="btn edit-btn">Edit</a>
+
+        <form action="/posts/<%= id %>/delete" method="POST" onsubmit="return confirm('Delete this post?');">
+            <button class="btn delete-btn">Delete</button>
+        </form>
+  </div>
+
+  
+
+<!-- content goes here -->
+</div>
+</file>
+
+<file path="views/partials/navbar.ejs">
+<header class="site-header">
+        <div class="container nav-container">
+            <a href="/" class="logo">My Blog</a>
+
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/compose">Compose</a>
+            </nav>
+        </div>
+    </header>
+</file>
+
+<file path=".gitignore">
+node_modules/
+.env
+.DS_Store
+.vscode/
+</file>
+
+<file path="LICENSE">
+MIT License
+
+Copyright (c) 2025 Katiehey
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</file>
+
+<file path="README.md">
+# Node + Express + EJS Starter Template
+
+A clean starter template for building web apps using Node.js, Express.js, and EJS.
+
+## 🚀 How to Use
+
+1. Click **Use this template** on GitHub.
+2. Create your new project repository.
+3. Clone your new repo: git clone <your-new-repo-url>
+4. Install dependencies: npm install
+5. Start the dev server: npm run dev
+
+## 📁 Folder Structure
+
+├── public/
+├── views/
+├── server.js
+└── package.json
+
+## 💡 Features
+
+- Express server
+- EJS templating engine
+- Static public folder
+- Nodemon auto-restart
+</file>
+
+<file path="public/css/styles.css">
+/* ---------------------------
+   POMODORO 1: BASE + RESET
+----------------------------*/
+/* global color palette + CSS variables */
+:root {
+    /* Brand Colors */
+    --primary: #4A74E0;
+    --primary-dark: #3958AE;
+    --secondary: #F7C948;
+
+    /* Neutral Colors */
+    --background: #F8F9FA;
+    --text: #1A1A1A;
+    --light-text: #666;
+    --border: #E5E5E5;
+
+    /* UI Colors */
+    --card-bg: #ffffff;
+    --danger: #E05353;
+
+    /* Spacing & Radius */
+    --radius: 8px;
+    --radius-large: 14px;
+}
+
+/* 1. CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* 3. Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f7f8;
+    color: #222;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* 4. Anchor reset */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ---------------------------
+   POMODORO 2: LAYOUT CONTAINER
+----------------------------*/
+
+.container {
+    max-width: 800px;      /* keeps content readable */
+    margin: 0 auto;        /* centers the content */
+    padding: 20px;         /* breathing room */
+}
+
+/* Page Titles */
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* --------------------------------
+   POMODORO 3: Header + Navigation
+----------------------------------*/
+.site-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-links a {
+    margin-left: 1.5rem;
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+/* --------------------------------
+   POMODORO 4: HOMEPAGE POST LIST
+----------------------------------*/
+
+.page-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; 
+}
+
+.post-item {
+    padding: 1.5rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    text-decoration: none;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.post-item h2 {
+    font-size: 1.4rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.post-snippet {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Hover Effect */
+.post-item:hover {
+    border-color: #cfcfcf;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-3px);
+}
+
+.empty {
+    color: #777;
+    padding: 2rem 0;
+}
+
+/* ---------------------------------------
+   POMODORO 5: Style the Single Post Page
+-----------------------------------------*/
+
+.post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.post-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #222;
+}
+
+.post-date {
+    color: #888;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.post-body {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 2.5rem;
+    white-space: pre-wrap;
+}
+
+/* Buttons */
+.post-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.7rem 1.4rem;
+    border-radius: 6px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.edit-btn {
+    min-width: 150px;
+    min-height: 50px;
+    background: #4a90e2;
+    color: #fff;
+    text-align: center;
+}
+
+.edit-btn:hover {
+    background: #3b7cc4;
+}
+
+.delete-btn {
+    min-width: 150px;
+    min-height: 50px;
+    background: #e74c3c;
+    color: #fff;
+    text-align: center;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+.home-btn {
+    min-width: 150px;
+    min-height: 50px;
+    background: #43b3bb;
+    color: #fff;
+    text-align: center;
+}
+
+.home-btn:hover {
+    background: #7f8c8d;
+}
+
+/* ------------------------------------------
+   POMODORO 6: Style the Compose + Edit Pages
+---------------------------------------------*/
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.post-form label {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #333;
+}
+
+.post-form input,
+.post-form textarea {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Input focus effect */
+.post-form input:focus,
+.post-form textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+    outline: none;
+}
+
+/* Submit button */
+.primary-btn {
+    background: #4a90e2;
+    color: #fff;
+    padding: 0.9rem 1.4rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.primary-btn:hover {
+    background: #3b7cc4;
+}
+
+.cancel-btn {
+    background: #e0e0e0;
+    color: #333;
+    width: fit-content;
+    align-self: flex-start;
+    padding: 0.9rem 1.4rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+/* ------------------------------------------------
+   POMODORO 7: Style the 404 Page + Improve Footer
+--------------------------------------------------*/
+
+/* 404 page */
+.not-found-container {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+
+.not-found-title {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.not-found-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--light-text);
+}
+
+/* Footer */
+.site-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: var(--light-text);
+}
+
+/* ------------------------------------
+   POMODORO 8: Mobile Responsive Design
+---------------------------------------*/
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .post-card {
+        padding: 1.2rem;
+    }
+
+    .post-title {
+        font-size: 1.3rem;
+    }
+
+    .post-meta {
+        font-size: 0.9rem;
+    }
+
+    form textarea {
+        height: 120px;
+    }
+
+    .primary-btn {
+        width: 100%;
+    }
+}
+/*body {
+    font-family: Arial, sans-serif;
+    width: 100%; 
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+nav {
+  background: #222;
+  color: white;
+  padding: 15px;
+}
+
+nav a {
+    margin-right: 10px;
+}
+
+h1 {
+  margin-top: 40px;
+  text-align: center;
+}
+
+button {
+    padding: 6px 12px;
+}*/
+</file>
+
+<file path="views/pages/home.ejs">
+<div class="container">
+    <h1 class="page-title">Latest Posts</h1>
+
+  
+<div class="post-list">
+  <%if (posts.length === 0) { %>
+      <p class="empty">No posts yet. Create one!</p>
+  <%} else { %>
+    
+      <%posts.forEach(post => { %>
+        
+        <a href="/posts/<%= post.id %>" class="post-item">
+          <h2><%= post.title %></h2>
+          <p class="post-snippet"><%= post.content.substring(0, 150) + '...' %></p>
+          <!--<a href="/posts/<%= post.id %>">Read more</a>
+          <form action="/delete" method="POST" style="display:inline;">
+          <input type="hidden" name="id" value="<%= post.id %>">
+          <button type="submit" onclick="return confirm('Delete this post?');">Delete</button>
+        </form>-->
+        </a>
+       
+      <%})%>
+    
+  <%}%>
+  </div>
+  <!-- content goes here -->
+</div>
+</file>
+
+<file path="views/partials/footer.ejs">
+</main>
+<footer class="site-footer">
+  <div class="container footer-container">
+  <p>&copy; <%= new Date().getFullYear() %> My Blog. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>
+</file>
+
+<file path="views/partials/header.ejs">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+<!-- Navbar included here -->
+  <%- include('navbar') %>
+
+ <main class="container">
+</file>
+
+<file path="package.json">
+{
+  "name": "node-ejs-template",
+  "version": "1.0.0",
+  "description": "A starter template for Node.js + Express + EJS projects",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^5.1.0",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
+</file>
+
+<file path="server.js">
+import express from "express";
+import ejsLayouts from "express-ejs-layouts";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const app = express();
+const port = 3000;
+
+// Path fix for ES modules
+const __filename = fileURLToPath(import.meta.url);
+//console.log(__filename);
+const __dirname = path.dirname(__filename);
+//console.log(__dirname);
+
+// Middleware
+app.use(express.urlencoded({ extended: true })); // To parse form data
+app.use(express.static(path.join(__dirname, "public"))); // To serve static files
+app.use(ejsLayouts); // Use EJS layouts
+
+// Set EJS
+app.set("view engine", "ejs"); // Set the view engine to EJS. Make sure ejs is installed via npm. 
+app.set("views", path.join(__dirname, "views")); // Set the views directory
+app.set("layout", "layouts/layout"); // Default layout file
+
+// Temporary in-memory storage. Every time the server restarts, the data resets
+let posts = [];
+
+
+// Routes
+app.get("/", (req, res) => {
+  res.render("pages/home", { posts, title: "Home" });
+});
+
+app.get("/compose", (req, res) => {
+  res.render("pages/compose", { title: "Compose" });
+});
+
+// Handle form submission
+app.post("/submit", (req, res) => {
+  //const { title, content } = req.body;
+  const title = req.body.title;
+  const content = req.body.content;
+
+  // Give each post an ID
+  const newPost = {
+    id: Date.now().toString(),
+    title: title,
+    content: content,
+  };
+
+  posts.push(newPost);
+  //const { title, content } = req.body;
+  //posts.push({ id, title, content }); // Store post in memory
+
+  res.redirect("/");
+});
+
+// Dynamic route for individual posts
+app.get("/posts/:id", (req, res) => {
+  const id = req.params.id;
+
+  const post = posts.find((p) => p.id === id);
+  //const post = posts[id];
+
+  if (post) {
+    res.render("pages/post", { title: `Post: ${post.title}`, post, id: id });
+  } else {
+    res.status(404).render("pages/404", { title: "Not Found" });
+  }
+});
+
+// Edit post route
+app.get("/posts/:id/update", (req, res) => {
+  const id = req.params.id;
+  const post = posts.find((p) => p.id === id);
+
+  if (!post) {
+    return res.status(404).render("pages/404", { title: "Not Found" });
+  }
+
+  res.render("pages/edit", { title: "Edit Post", post });
+});
+
+// Handle edit form submission
+app.post("/posts/:id/update", (req, res) => {
+  const id = req.params.id;
+  const post = posts.find((p) => p.id === id);
+
+  if (!post) {
+    return res.status(404).render("pages/404", { title: "Not Found" });
+  }
+
+  // Update the post
+  post.title = req.body.title;
+  post.content = req.body.content;
+
+  // Redirect back to the updated post
+  res.redirect(`/posts/${id}`);
+});
+
+// Handle delete post
+app.post("/posts/:id/delete", (req, res) => {
+  const { id } = req.body;
+
+  // Find index of post
+  const index = posts.findIndex((p) => p.id === id);
+
+  if (index === -1) {
+    return res.status(404).render("pages/404", { title: "Not Found" });
+  }
+
+  // Remove the post
+  posts.splice(index, 1);
+
+  // Redirect to posts homepage
+  res.redirect("/");
+});
+
+// Start server
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
+</file>
+
+</files>

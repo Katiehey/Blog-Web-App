@@ -1,8 +1,39 @@
 </main>
 <footer class="site-footer">
-  <div class="container footer-container">
-  <p>&copy; <%= new Date().getFullYear() %> My Blog. All rights reserved.</p>
-  </div>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="/" class="logo">
+                    <span class="logo-icon">📝</span>
+                    <span class="logo-text">BlogSpace</span>
+                </a>
+                <p class="footer-tagline">Where thoughts find their voice</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <a href="/">Home</a>
+                    <a href="/compose">Write</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <span>A minimalist blogging platform</span>
+                    <span>Built with Node.js & Express</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <%= new Date().getFullYear() %> BlogSpace. All rights reserved.</p>
+            <div class="footer-tech">
+                <span class="tech-badge">Node.js</span>
+                <span class="tech-badge">Express</span>
+                <span class="tech-badge">EJS</span>
+            </div>
+        </div>
+    </div>
 </footer>
 </body>
 </html>

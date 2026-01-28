@@ -1,11 +1,19 @@
 <header class="site-header">
-        <div class="container nav-container">
-            <a href="/" class="logo">My Blog</a>
-
-            <nav class="nav-links">
-                <a href="/">Home</a>
-                <a href="/compose">Compose</a>
-            </nav>
-        </div>
-    </header>
-
+    <div class="container nav-container">
+        <a href="/" class="logo">
+            <span class="logo-icon">📝</span>
+            <span class="logo-text">BlogSpace</span>
+        </a>
+        
+        <nav class="nav-links">
+            <a href="/" class="nav-link <%= title === 'Home' ? 'active' : '' %>">
+                <span class="nav-icon">🏠</span>
+                <span class="nav-text">Home</span>
+            </a>
+            <a href="/compose" class="nav-link <%= title === 'Compose' ? 'active' : '' %>">
+                <span class="nav-icon">✏️</span>
+                <span class="nav-text">Write</span>
+            </a>
+        </nav>
+    </div>
+</header>

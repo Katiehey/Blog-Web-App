@@ -1,397 +1,765 @@
 /* ---------------------------
-   POMODORO 1: BASE + RESET
+   MODERN BLOG - ENHANCED STYLES
 ----------------------------*/
-/* global color palette + CSS variables */
+
+/* 1. Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+/* 2. CSS Variables (Color Palette) */
 :root {
-    /* Brand Colors */
-    --primary: #4A74E0;
-    --primary-dark: #3958AE;
-    --secondary: #F7C948;
-
-    /* Neutral Colors */
-    --background: #F8F9FA;
-    --text: #1A1A1A;
-    --light-text: #666;
-    --border: #E5E5E5;
-
-    /* UI Colors */
-    --card-bg: #ffffff;
-    --danger: #E05353;
-
-    /* Spacing & Radius */
-    --radius: 8px;
-    --radius-large: 14px;
+    /* Modern color palette */
+    --primary: #4361ee;
+    --primary-dark: #3a56d4;
+    --secondary: #7209b7;
+    --accent: #f72585;
+    
+    /* Neutral palette */
+    --bg-light: #f8fafc;
+    --bg-white: #ffffff;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --text-muted: #94a3b8;
+    
+    /* Surfaces */
+    --surface-1: #ffffff;
+    --surface-2: #f1f5f9;
+    --surface-3: #e2e8f0;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+    
+    /* Border Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
 }
 
-/* 1. CSS RESET */
+/* 3. CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 2. Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* 3. Base Styles */
+/* 4. Base Styles */
 body {
     font-family: 'Inter', sans-serif;
-    background: #f7f7f8;
-    color: #222;
+    background: linear-gradient(135deg, var(--bg-light) 0%, var(--surface-3) 100%);
+    min-height: 100vh;
+    color: var(--text-dark);
     line-height: 1.6;
-    padding: 20px;
 }
 
-/* 4. Anchor reset */
+/* 5. Typography */
+h1, h2, h3, h4, .logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+}
+
+/* 6. Links */
 a {
     text-decoration: none;
     color: inherit;
 }
 
-/* ---------------------------
-   POMODORO 2: LAYOUT CONTAINER
-----------------------------*/
-
+/* 7. Container */
 .container {
-    max-width: 800px;      /* keeps content readable */
-    margin: 0 auto;        /* centers the content */
-    padding: 20px;         /* breathing room */
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-/* Page Titles */
+/* 8. Utility Classes */
 .page-title {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     text-align: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* --------------------------------
-   POMODORO 3: Header + Navigation
-----------------------------------*/
+.page-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* 9. Enhanced Navigation */
 .site-header {
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
-    padding: 1rem 0;
-    margin-bottom: 2rem;
+    background: var(--surface-1);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+    padding: 0.5rem 0;
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
 }
 
 .logo {
-    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    color: #333;
+    color: var(--primary);
     text-decoration: none;
 }
 
-.nav-links a {
-    margin-left: 1.5rem;
-    color: #555;
+.logo:hover {
+    transform: translateY(-2px);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
 }
 
-.nav-links a:hover {
-    color: #000;
+.nav-link:hover {
+    background: var(--surface-2);
+    color: var(--primary);
+    transform: translateY(-1px);
 }
 
-/* --------------------------------
-   POMODORO 4: HOMEPAGE POST LIST
-----------------------------------*/
+.nav-link.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
 
-.page-title {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: #333;
+/* 10. Enhanced Homepage */
+.hero-section {
+    text-align: center;
+    padding: 3rem 0;
 }
 
 .post-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
 .post-item {
-    padding: 1.5rem;
-    border: 1px solid #e5e5e5;
-    border-radius: 8px;
+    background: var(--surface-1);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
     text-decoration: none;
-    background: #fff;
-    transition: all 0.2s ease;
+    color: inherit;
+    border: 1px solid var(--surface-3);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.post-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.post-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+
+.post-item:hover::before {
+    opacity: 1;
 }
 
 .post-item h2 {
-    font-size: 1.4rem;
-    color: #222;
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-dark);
+    line-height: 1.3;
 }
 
 .post-snippet {
-    color: #666;
-    line-height: 1.5;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* Hover Effect */
-.post-item:hover {
-    border-color: #cfcfcf;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-    transform: translateY(-3px);
-}
-
-.empty {
-    color: #777;
-    padding: 2rem 0;
-}
-
-/* ---------------------------------------
-   POMODORO 5: Style the Single Post Page
------------------------------------------*/
-
-.post-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
-}
-
-.post-title {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: #222;
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
 }
 
 .post-date {
-    color: #888;
-    margin-bottom: 2rem;
-    font-size: 0.9rem;
-}
-
-.post-body {
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 2.5rem;
-    white-space: pre-wrap;
-}
-
-/* Buttons */
-.post-actions {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.3rem;
 }
 
-.btn {
-    padding: 0.7rem 1.4rem;
-    border-radius: 6px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    font-size: 0.95rem;
+.read-more {
+    color: var(--primary);
     font-weight: 500;
-    transition: all 0.2s ease;
+    margin-top: 1rem;
+    display: inline-block;
 }
 
-.edit-btn {
-    min-width: 150px;
-    min-height: 50px;
-    background: #4a90e2;
-    color: #fff;
+/* 11. Empty State */
+.empty-state {
     text-align: center;
+    padding: 4rem 2rem;
+    background: var(--surface-1);
+    border-radius: var(--radius-lg);
+    border: 2px dashed var(--surface-3);
+    grid-column: 1 / -1;
 }
 
-.edit-btn:hover {
-    background: #3b7cc4;
+.empty-state-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
 }
 
-.delete-btn {
-    min-width: 150px;
-    min-height: 50px;
-    background: #e74c3c;
-    color: #fff;
-    text-align: center;
+.empty-state h3 {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
 }
 
-.delete-btn:hover {
-    background: #c0392b;
-}
-
-.home-btn {
-    min-width: 150px;
-    min-height: 50px;
-    background: #43b3bb;
-    color: #fff;
-    text-align: center;
-}
-
-.home-btn:hover {
-    background: #7f8c8d;
-}
-
-/* ------------------------------------------
-   POMODORO 6: Style the Compose + Edit Pages
----------------------------------------------*/
-
+/* 12. Enhanced Forms */
 .form-container {
     max-width: 700px;
-    margin: 0 auto;
-    padding: 2rem 0;
+    margin: 2rem auto;
+    padding: 3rem;
+    background: var(--surface-1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .post-form {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
 }
 
 .post-form label {
+    display: block;
+    margin-bottom: 0.5rem;
     font-weight: 600;
-    font-size: 1rem;
-    color: #333;
+    color: var(--text-dark);
+    font-size: 0.95rem;
 }
 
 .post-form input,
 .post-form textarea {
     width: 100%;
-    padding: 0.9rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid var(--surface-3);
+    border-radius: var(--radius-md);
     font-size: 1rem;
-    font-family: inherit;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    background: var(--surface-2);
+    transition: all 0.3s ease;
 }
 
-/* Input focus effect */
 .post-form input:focus,
 .post-form textarea:focus {
-    border-color: #4a90e2;
-    box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
     outline: none;
+    border-color: var(--primary);
+    background: var(--surface-1);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
 }
 
-/* Submit button */
+/* Form icons */
+.form-group.title::before {
+    content: "📝";
+    position: absolute;
+    left: 1rem;
+    top: 2.9rem;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.form-group.content::before {
+    content: "📄";
+    position: absolute;
+    left: 1rem;
+    top: 3rem;
+    font-size: 1.2rem;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+/* 13. Enhanced Buttons */
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
 .primary-btn {
-    background: #4a90e2;
-    color: #fff;
-    padding: 0.9rem 1.4rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1rem 2rem;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex: 1;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 .primary-btn:hover {
-    background: #3b7cc4;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
 }
 
-.cancel-btn {
-    background: #e0e0e0;
-    color: #333;
-    width: fit-content;
-    align-self: flex-start;
-    padding: 0.9rem 1.4rem;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+.secondary-btn {
+    background: var(--surface-2);
+    color: var(--text-dark);
+    padding: 1rem 2rem;
+    border: 2px solid var(--surface-3);
+    border-radius: var(--radius-md);
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s ease;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
 }
 
-/* ------------------------------------------------
-   POMODORO 7: Style the 404 Page + Improve Footer
---------------------------------------------------*/
+.secondary-btn:hover {
+    background: var(--surface-3);
+    transform: translateY(-2px);
+}
 
-/* 404 page */
-.not-found-container {
+/* 14. Enhanced Post Page */
+.post-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 3rem;
+    background: var(--surface-1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.post-header {
+    border-bottom: 2px solid var(--surface-2);
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+
+.post-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.post-meta-details {
+    display: flex;
+    gap: 2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.post-body {
+    line-height: 1.8;
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    white-space: pre-wrap;
+}
+
+.post-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* 15. Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--surface-2);
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.edit-btn {
+    background: var(--surface-2);
+    color: var(--text-dark);
+    border: 1px solid var(--surface-3);
+}
+
+.edit-btn:hover {
+    background: var(--surface-3);
+    transform: translateY(-2px);
+}
+
+.delete-btn {
+    background: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.delete-btn:hover {
+    background: #fecaca;
+    transform: translateY(-2px);
+}
+
+.home-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    flex: 1;
+    justify-content: center;
+}
+
+.home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+}
+
+.delete-form {
+    display: inline;
+}
+
+/* 16. Enhanced 404 Page */
+.error-container {
     text-align: center;
-    padding: 4rem 1rem;
+    padding: 4rem 2rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.not-found-title {
-    font-size: 2.4rem;
+.error-illustration {
+    position: relative;
+    height: 200px;
+    margin-bottom: 2rem;
+}
+
+.error-icon {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.error-graphic {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: var(--surface-3);
+}
+
+.error-graphic .graphic-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--primary);
+    border-radius: 50%;
+    top: -3px;
+}
+
+.error-graphic .graphic-dot:nth-child(2) {
+    left: 30%;
+    animation: float 3s ease-in-out infinite;
+}
+
+.error-graphic .graphic-dot:nth-child(3) {
+    left: 50%;
+    animation: float 3s ease-in-out infinite 0.5s;
+}
+
+.error-graphic .graphic-dot:nth-child(4) {
+    left: 70%;
+    animation: float 3s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.error-title {
+    font-size: 6rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.error-subtitle {
+    font-size: 2rem;
+    color: var(--text-dark);
     margin-bottom: 1rem;
 }
 
-.not-found-text {
-    font-size: 1.2rem;
+.error-message {
+    color: var(--text-light);
+    font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: var(--light-text);
-}
-
-/* Footer */
-.site-footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    background: #fafafa;
-    border-top: 1px solid #eee;
-    text-align: center;
-    color: var(--light-text);
-}
-
-/* ------------------------------------
-   POMODORO 8: Mobile Responsive Design
----------------------------------------*/
-
-@media (max-width: 600px) {
-    .container {
-        padding: 0 1rem;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .post-card {
-        padding: 1.2rem;
-    }
-
-    .post-title {
-        font-size: 1.3rem;
-    }
-
-    .post-meta {
-        font-size: 0.9rem;
-    }
-
-    form textarea {
-        height: 120px;
-    }
-
-    .primary-btn {
-        width: 100%;
-    }
-}
-/*body {
-    font-family: Arial, sans-serif;
-    width: 100%; 
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
     line-height: 1.6;
 }
 
-nav {
-  background: #222;
-  color: white;
-  padding: 15px;
+.error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
 }
 
-nav a {
-    margin-right: 10px;
+/* 17. Enhanced Footer */
+.site-footer {
+    margin-top: 4rem;
+    padding: 3rem 0 2rem;
+    background: var(--text-dark);
+    color: white;
 }
 
-h1 {
-  margin-top: 40px;
-  text-align: center;
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
-button {
-    padding: 6px 12px;
-}*/
+.footer-brand .logo {
+    color: white;
+    margin-bottom: 0.5rem;
+}
 
+.footer-tagline {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.footer-section a {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: white;
+}
+
+.footer-section span {
+    display: block;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tech-badge {
+    background: rgba(255,255,255,0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+}
+
+/* 18. Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.post-item:nth-child(1) { animation-delay: 0.1s; }
+.post-item:nth-child(2) { animation-delay: 0.2s; }
+.post-item:nth-child(3) { animation-delay: 0.3s; }
+.post-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* 19. Focus styles for accessibility */
+*:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* 20. Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem 0;
+    }
+    
+    .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .post-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .post-item {
+        padding: 1.5rem;
+    }
+    
+    .post-title {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+    }
+    
+    .error-container {
+        padding: 2rem 1rem;
+    }
+    
+    .error-title {
+        font-size: 4rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .post-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .post-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
